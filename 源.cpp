@@ -47,6 +47,9 @@ void text()
 	//测试后插法建立链表
 	LList.PushBack();
 
+	//测试头插法
+	LList.PushHead();
+
 
 }
 

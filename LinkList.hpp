@@ -186,7 +186,7 @@ public:
 	}
 
 	//头插法建立单链表
-	bool PushHead(int e)
+	bool PushHead()
 	{
 		int select = 0;
 		while (true)
