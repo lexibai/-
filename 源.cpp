@@ -34,7 +34,10 @@ void text()
 	{
 		std::cout << "删除失败" << std::endl;
 	}
-		
+	
+	//测试最后一个元素的指针
+	if (LList.LiseDelete(8, e))
+		std::cout << "删除了位序为9的元素：" << e;
 }
 
 int main(void)

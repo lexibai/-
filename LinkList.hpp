@@ -50,8 +50,8 @@ public:
 		{
 			if (p == nullptr)
 			{
-				std::cout << "此节点不存在" << std::endl;
-				return nullptr;
+				std::cout << "此节点不存在,返回最后一个节点" << std::endl;
+				return this->EndP;
 			}
 			if (j == i)
 			{
@@ -134,11 +134,11 @@ public:
 	{
 		if (i<1 || i>this->linkSize)return false;
 
-		//当删除的是最后一个元素时，更新最后一个元素的节点
-		if (i == this->linkSize)this->EndP = this->GetElem(i - 1);
-
 		e = this->GetElem(i)->elem;
 
+		//当删除的是最后一个元素时，更新最后一个元素的节点
+		if (i == this->linkSize)this->EndP = this->GetElem(i - 1);
+		
 		LNode* p = GetElem(i - 1)->next;//记录要删除的节点
 		this->GetElem(i - 1)->next = this->GetElem(i)->next;//逻辑上删除这个节点
 		this->linkSize--;
@@ -159,7 +159,8 @@ public:
 		if (n->next == nullptr)//此节点为最后一个节点时的删除方法
 		{
 			delete(n);
-			this->GetElem(this->linkSize - 1)->next = nullptr;
+			this->EndP = this->GetElem(this->linkSize - 1);
+			this->EndP->next = nullptr;
 			this->linkSize--;
 			return true;
 		}
