@@ -81,7 +81,7 @@ public:
 	//求链表长度
 	int Length()
 	{
-
+		return this->linkSize;
 	}
 
 	 
@@ -123,7 +123,17 @@ public:
 	//按位序删除
 	bool LiseDelete(int i, int& e)
 	{
+		if (i<1 || i>this->linkSize)return false;
 
+		e = this->GetElem(i)->elem;
+
+		LNode* p = GetElem(i - 1)->next;//记录要删除的节点
+		this->GetElem(i - 1)->next = this->GetElem(i)->next;//逻辑上删除这个节点
+
+		//释放要删除的空间（物理上删除这个节点）
+		delete(p);
+
+		return true;
 	}
 
 	//指定节点的删除
