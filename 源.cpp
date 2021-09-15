@@ -4,7 +4,7 @@ void text()
 {
 	//测试LinkList
 	LinkListClass LList;
-	
+
 	//测试按位插入
 	for (int i = 1; i < 12; i++)
 	{
@@ -43,6 +43,11 @@ void text()
 	//测试指定节点的后插法
 	LList.InsertNextNode(LList.GetEndNode(), 522);
 	LList.InsertNextNode(LList.GetHeadNode(), 314);
+
+	//测试后插法建立链表
+	LList.PushBack();
+
+
 }
 
 int main(void)

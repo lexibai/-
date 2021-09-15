@@ -192,11 +192,26 @@ public:
 	}
 
 	//尾插法建立单链表
-	bool PushBack(int e)
+	bool PushBack()
 	{
+		int select = 0;
+		while (true)
+		{
+			std::cin >> select;
+			//输入-10086的时候退出建立
+			if (select == -10086) return true;
+			else
+			{
+				this->InsertNextNode(this->EndP, select);
+			}
 
+		}
+	
+		return false;
 	}
 
+
+	//获取链表属性的接口
 	LNode* GetEndNode()
 	{
 		return this->EndP;
