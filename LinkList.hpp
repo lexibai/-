@@ -137,7 +137,12 @@ public:
 	//指定节点的前插法
 	bool InsertPriorNode(LNode* n, int e)
 	{
-
+		//先使用后插法插入
+		this->InsertNextNode(n, e);
+		//交换两个元素的位置
+		n->elem = n->elem + n->next->elem;
+		n->next->elem = n->elem - n->next->elem;
+		n->elem = n->elem - n->next->elem;
 	}
 
 	//按位序删除
