@@ -26,7 +26,7 @@ void text()
 	std::cout << "链表长度为：" << LList.Length() << std::endl;
 
 	//测试删除对应节点
-	if (LList.DeleteNode(LList.GetElem(7)))
+	if (LList.DeleteNode(LList.GetElem(3)))
 	{
 		std::cout << "链表长度为：" << LList.Length() << std::endl;
 	}
@@ -35,8 +35,9 @@ void text()
 		std::cout << "删除失败" << std::endl;
 	}
 	
+	std::cout << "链表长度为：" << LList.Length() << std::endl;
 	//测试最后一个元素的指针
-	if (LList.LiseDelete(8, e))
+	if (LList.LiseDelete(9, e))
 		std::cout << "删除了位序为9的元素：" << e;
 }
 

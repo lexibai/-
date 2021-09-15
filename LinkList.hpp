@@ -46,7 +46,7 @@ public:
 		
 		LNode* p = L->next;
 		//p指向位序1的节点
-		for (int j = 1; j <= i; j++)
+		for (int j = 1; j <= i; j++,p=p->next)
 		{
 			if (p == nullptr)
 			{
@@ -57,7 +57,6 @@ public:
 			{
 				return p;
 			}
-			p = p->next;
 		}
 
 		return nullptr;
@@ -166,7 +165,7 @@ public:
 		}
 		LNode* p = n->next;//记录要删除的节点，此节点物理上是要删除节点的下一个。
 		n->elem = n->next->elem;//从逻辑上删除节点
-		n->next = nullptr;
+		n->next = p->next;
 		this->linkSize--;
 		//物理上删除
 		delete(p);
