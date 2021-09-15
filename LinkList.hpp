@@ -124,7 +124,7 @@ public:
 		p->next = n->next;
 		n->next = p;
 
-		if (n = this->EndP)
+		if (n == this->EndP)
 		{
 			this->EndP = p;
 		}
@@ -195,6 +195,16 @@ public:
 	bool PushBack(int e)
 	{
 
+	}
+
+	LNode* GetEndNode()
+	{
+		return this->EndP;
+	}
+
+	LNode* GetHeadNode()
+	{
+		return this->L;
 	}
 
 };

@@ -40,7 +40,9 @@ void text()
 	if (LList.LiseDelete(9, e))
 		std::cout << "删除了位序为9的元素：" << e;
 
-
+	//测试指定节点的后插法
+	LList.InsertNextNode(LList.GetEndNode(), 522);
+	LList.InsertNextNode(LList.GetHeadNode(), 314);
 }
 
 int main(void)
