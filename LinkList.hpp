@@ -188,6 +188,20 @@ public:
 	//头插法建立单链表
 	bool PushHead(int e)
 	{
+		int select = 0;
+		while (true)
+		{
+			std::cin >> select;
+			//输入-10086的时候退出建立
+			if (select == -10086) return true;
+			else
+			{
+				this->InsertNextNode(this->L, select);
+			}
+
+		}
+
+		return false;
 
 	}
 
