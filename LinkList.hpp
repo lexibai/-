@@ -17,6 +17,8 @@ class LinkListClass
 	LinkList L;
 	//链表长度
 	int linkSize;
+	//链表的最后一个节点的指针
+	LNode* EndP;
 
 public:
 	//构造函数
@@ -33,6 +35,8 @@ public:
 		this->L->next = nullptr;
 
 		this->linkSize = 0;
+
+		this->EndP = L;
 	}
 
 	//按位序查找
@@ -96,10 +100,15 @@ public:
 		{
 			if (j == i)
 			{
+				//进行插入
 				newElem->next = p->next;
 				newElem->elem = e;
 				p->next = newElem;
 				this->linkSize++;
+
+				//判断插入位置是否为最后一个，并更新最后一个元素指针的位置
+				if (i == this->linkSize)this->EndP = newElem;
+
 				return true;
 			}
 			p = p->next;
@@ -124,6 +133,9 @@ public:
 	bool LiseDelete(int i, int& e)
 	{
 		if (i<1 || i>this->linkSize)return false;
+
+		//当删除的是最后一个元素时，更新最后一个元素的节点
+		if (i == this->linkSize)this->EndP = this->GetElem(i - 1);
 
 		e = this->GetElem(i)->elem;
 
@@ -162,13 +174,13 @@ public:
 	}
 
 	//头插法建立单链表
-	bool PushHead()
+	bool PushHead(int e)
 	{
 
 	}
 
 	//尾插法建立单链表
-	bool PushBack()
+	bool PushBack(int e)
 	{
 
 	}
