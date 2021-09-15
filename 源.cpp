@@ -23,6 +23,18 @@ void text()
 	int e = 0;
 	if (LList.LiseDelete(3, e))
 		std::cout << "删除了位序为3的元素：" << e;
+	std::cout << "链表长度为：" << LList.Length() << std::endl;
+
+	//测试删除对应节点
+	if (LList.DeleteNode(LList.GetElem(7)))
+	{
+		std::cout << "链表长度为：" << LList.Length() << std::endl;
+	}
+	else
+	{
+		std::cout << "删除失败" << std::endl;
+	}
+		
 }
 
 int main(void)

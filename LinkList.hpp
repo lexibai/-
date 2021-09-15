@@ -129,9 +129,11 @@ public:
 
 		LNode* p = GetElem(i - 1)->next;//记录要删除的节点
 		this->GetElem(i - 1)->next = this->GetElem(i)->next;//逻辑上删除这个节点
+		this->linkSize--;
 
 		//释放要删除的空间（物理上删除这个节点）
 		delete(p);
+		
 
 		return true;
 	}
@@ -139,6 +141,23 @@ public:
 	//指定节点的删除
 	bool DeleteNode(LNode* n)
 	{
+		if (n == nullptr)return false;
+	
+		/// 删除指定节点
+		if (n->next == nullptr)//此节点为最后一个节点时的删除方法
+		{
+			delete(n);
+			this->GetElem(this->linkSize - 1)->next = nullptr;
+			this->linkSize--;
+			return true;
+		}
+		LNode* p = n->next;//记录要删除的节点，此节点物理上是要删除节点的下一个。
+		n->elem = n->next->elem;//从逻辑上删除节点
+		n->next = nullptr;
+		this->linkSize--;
+		//物理上删除
+		delete(p);
+		return true;
 
 	}
 
