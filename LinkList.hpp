@@ -119,7 +119,19 @@ public:
 	//指定节点的后插法
 	bool InsertNextNode(LNode* n, int e)
 	{
+		LNode* p = new(LNode);
+		p->elem = e;
+		p->next = n->next;
+		n->next = p;
 
+		if (n = this->EndP)
+		{
+			this->EndP = p;
+		}
+
+		this->linkSize++;
+
+		return true;
 	}
 
 	//指定节点的前插法
