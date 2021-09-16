@@ -143,6 +143,8 @@ public:
 		n->elem = n->elem + n->next->elem;
 		n->next->elem = n->elem - n->next->elem;
 		n->elem = n->elem - n->next->elem;
+
+		return true;
 	}
 
 	//按位序删除
@@ -230,6 +232,40 @@ public:
 	}
 
 
+	//链表倒置——请务必输入链表头
+	bool ListInverse(LinkList n)
+	{
+		if (n->next == nullptr || n->next->next == nullptr)return false;
+
+		LNode* prenod = n;
+		n = n->next;
+		LNode* nexnod = n->next;
+
+		while (n->next != nullptr)
+		{
+			if (prenod != this->L)
+			{
+				n->next = prenod;
+				prenod = n;
+				n = nexnod;
+				nexnod = n->next;
+			}
+			else 
+			{
+				n->next = nullptr;
+				prenod = n;
+				n = nexnod;
+				nexnod = n->next;
+			}
+			
+		}
+		n->next = prenod;//将最后一个元素逆转
+
+		this->L->next = n;//链表头指向第一个元素
+
+		return true;
+	}
+
 	//获取链表属性的接口
 	LNode* GetEndNode()
 	{
@@ -240,6 +276,13 @@ public:
 	{
 		return this->L;
 	}
+
+	LNode* GetL()
+	{
+		return this->L;
+	}
+
+
 
 };
 

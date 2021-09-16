@@ -6,9 +6,10 @@ void text()
 	LinkListClass LList;
 
 	//测试按位插入
-	for (int i = 1; i < 12; i++)
+	for (int i = 1; i < 20000000; i++)
 	{
-		LList.ListInsert(i, i * 2);
+		LList.InsertNextNode(LList.GetL(), i);
+		std::cout << "还活着，这是第" << i << "元素了" << std::endl;
 	}
 
 	//测试按位查找
@@ -45,11 +46,14 @@ void text()
 	LList.InsertNextNode(LList.GetHeadNode(), 314);
 
 	//测试后插法建立链表
-	LList.PushBack();
+	//LList.PushBack();
 
 	//测试头插法
-	LList.PushHead();
+	//LList.PushHead();
 
+	
+	//测试倒序
+	LList.ListInverse(LList.GetL());
 
 }
 
