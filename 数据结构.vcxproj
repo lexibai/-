@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="LinkList.hpp" />
+    <ClInclude Include="olderStack.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="源.cpp" />
