@@ -48,7 +48,10 @@ bool pop(Stack* stack, int* e)
 	int* p = (int*)malloc(sizeof(int));
 
 	//出栈
-	*p = stack->stack[stack->size];
+	if (p != NULL)
+		*p = stack->stack[stack->size];
+	else
+		return false;
 	e = p;
 	stack->stack[stack->size] = -1;
 	stack->size--;
@@ -71,13 +74,18 @@ bool pop(Stack* stack)
 }
 
 //查找栈顶元素，但不删除
-int find(Stack stack)
+int find(Stack* stack)
 {
 	//返回栈顶元素
+	if (stack->size < 0) return -2147483648;
+	
+	return stack->stack[stack->size];
 }
 
 //判断栈是否为空
-bool isEmpty(Stack stack)
+bool isEmpty(Stack* stack)
 {
 	//如果栈中元素为空，返回true，否则返回false
+	if (stack->size < 0)return true;
+	else return false;
 }
