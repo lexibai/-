@@ -38,21 +38,17 @@ bool push(Stack* stack, int e)
 }
 
 //出栈操作
-bool pop(Stack* stack, int* e)
+bool pop(Stack* stack, int& e)
 {
 	//将栈中栈顶的元素出栈，将此元素的值赋给e，并返回出栈结果，出栈成功返回true，否则返回false
 
 	//判断栈中是否存在元素
 	if (stack->size < 0)return false;
 
-	int* p = (int*)malloc(sizeof(int));
+
 
 	//出栈
-	if (p != NULL)
-		*p = stack->stack[stack->size];
-	else
-		return false;
-	e = p;
+	e = stack->stack[stack->size];
 	stack->stack[stack->size] = -1;
 	stack->size--;
 
@@ -77,8 +73,11 @@ bool pop(Stack* stack)
 int find(Stack* stack)
 {
 	//返回栈顶元素
-	if (stack->size < 0) return -2147483648;
-	
+	if (stack->size < 0)
+	{
+		std::cout << "栈里还没有元素哦" << std::endl;
+		return -2147483648;
+	}
 	return stack->stack[stack->size];
 }
 

@@ -1,4 +1,5 @@
 #include "LinkList.hpp"
+#include "olderStack.hpp"
 
 void text()
 {
@@ -57,9 +58,66 @@ void text()
 
 }
 
+//测试栈
+void text1()
+{
+	//创建了一个栈
+	Stack s;
+
+	//初始化栈
+	InitStack(&s);
+
+	//判断栈是否为空
+	if (isEmpty(&s))
+	{
+		std::cout << "空的，别看了，赶紧插几个元素进来。" << std::endl;
+	}
+	else
+	{
+		std::cout << "有元素了，要被塞满了" << std::endl;
+	}
+
+	//向栈中插入13个值
+	for (int i = 0; i < 13; i++)
+	{
+		push(&s, i * 2);
+	}
+
+	//进行三次出栈操作，并输出出栈的元素
+	for (int i = 0; i < 3; i++)
+	{
+		int p;
+		pop(&s, p);
+		std::cout << "第" << i << "次出栈： " << p << std::endl;
+	}
+
+	//进行三次出栈操作
+	for (int i = 0; i < 3; i++)
+	{
+		pop(&s);
+	}
+
+	//查看当前栈顶元素
+	int p;
+	pop(&s, p);
+	std::cout << "出栈： " << p << std::endl;
+
+	//判断栈是否为空
+	if (isEmpty(&s))
+	{
+		std::cout << "空的，别看了，赶紧插几个元素进来。" << std::endl;
+	}
+	else
+	{
+		std::cout << "有元素了，要被塞满了" << std::endl;
+	}
+
+
+}
+
 int main(void)
 {
-	//text();
+	text1();
 
 	return 0;
 }
