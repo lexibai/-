@@ -59,6 +59,7 @@ void text()
 
 int main(void)
 {
-	text();
+	//text();
 
+	return 0;
 }
